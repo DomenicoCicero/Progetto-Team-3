@@ -1,14 +1,58 @@
 * {
+  font-family: "Outfit", sans-serif;
+  font-weight: lighter;
+}
+
+body {
   background-image: url(/assets/bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
   color: white;
 }
+h2 {
+  font-size: 3rem;
+}
+h3 {
+  font-weight: normal;
+}
+.h3-blue {
+  color: #00ffff;
+}
 header img {
-  width: 10rem;
+  width: 13rem;
   padding: 4rem 0 1rem 4rem;
 }
 nav {
   color: white;
   text-align: center;
+  font-weight: 400;
+  padding-bottom: 4rem;
+}
+nav h1 {
+  font-size: 4rem;
+  margin-bottom: 0;
+  font-weight: bold;
+}
+nav h3 {
+  font-size: 1.5rem;
+}
+main {
+  display: flex;
+  justify-content: center;
+}
+#section-sx {
+  display: inline-block;
+  text-align: start;
+}
+#article-center {
+  display: inline-block;
+  padding: 0 20%;
+  text-align: center;
+}
+#section-dx {
+  display: inline-block;
+  opacity: 0.9;
+  text-align: end;
 }
 
 footer {

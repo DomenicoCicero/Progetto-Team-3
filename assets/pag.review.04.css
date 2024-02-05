@@ -5,10 +5,12 @@ body {
   text-align: center;
 }
 
-img {
-  padding-right: 60%;
-  padding-top: 3%;
-  padding-bottom: 2.5%;
+header {
+  text-align: left;
+}
+header img {
+  width: 15%;
+  padding: 45px 0px 30px 80px;
 }
 
 .title-pag h1 {
@@ -22,6 +24,7 @@ img {
   font-family: "Inter", sans-serif;
   font-size: 16px;
   color: white;
+  margin-inline: 34%;
 }
 
 .stars {

@@ -1,0 +1,64 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url(/assets/bg.jpg);
+  object-fit: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100vw;
+}
+
+header img {
+  width: 20%;
+  padding-block-start: 4%;
+  padding-inline-start: 9%;
+}
+
+main p {
+  color: white;
+  font-size: 60px;
+  font-family: "Outfit", sans-serif;
+  text-align: center;
+  padding-inline: 15%;
+}
+
+main p span {
+  font-family: "Outfit", sans-serif;
+  font-weight: bold;
+}
+
+main button {
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  background-color: #23294f;
+  color: white;
+  width: 41%;
+  border-radius: 20%;
+  border: 2px solid white;
+  margin-inline: 4%;
+  margin-block: 4%;
+  padding-block: 2%;
+  padding-inline: 5%;
+}
+
+.content-button {
+  width: 70%;
+  text-align: center;
+  padding-inline: 10%;
+  margin-inline: auto;
+}
+
+footer p {
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding-block-start: 9%;
+}
+footer p span {
+  color: #900080;
+}

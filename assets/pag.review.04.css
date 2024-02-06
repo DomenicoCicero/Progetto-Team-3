@@ -34,6 +34,11 @@ header img {
 
 .stars i {
   font-size: 50px;
+  cursor: pointer;
+}
+
+.stars.active {
+  color: blue;
 }
 
 footer p {
@@ -59,4 +64,16 @@ footer p {
   border: none;
   color: white;
   text-align: start;
+}
+
+.info-button {
+  margin-top: 30px;
+}
+
+.info-button button {
+  background-color: transparent;
+  border: 1px solid white;
+  cursor: pointer;
+  color: white;
+  padding: 16px 32px;
 }

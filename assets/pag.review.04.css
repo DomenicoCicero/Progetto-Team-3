@@ -39,6 +39,7 @@ header img {
 
 .stars.active {
   color: blue;
+  background-color: blue;
 }
 
 footer p {

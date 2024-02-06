@@ -7,6 +7,8 @@ stars.forEach((star, index1) => {
       index1 >= index2
         ? star.classList.add("active")
         : star.classList.remove("active");
+      console.log(star);
+      console.log(index1);
     });
   });
 });

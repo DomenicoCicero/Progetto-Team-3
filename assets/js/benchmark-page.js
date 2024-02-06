@@ -80,19 +80,14 @@ const questions = [
     correct_answer: "Java",
     incorrect_answers: ["Python", "C", "Jakarta"],
   },
-  {
-    category: "Science: Computers",
-    type: "multiple",
-    difficulty: "easy",
-    question: "Which programming language shares its name with an island in Indonesia?",
-    correct_answer: ["Java", "php", "javascript"],
-    incorrect_answers: ["Python", "C", "Jakarta"],
-  },
 ];
 
 let index = 0;
 let corrects = 0;
 let wrongs = 0;
+
+let giuste = [];
+let sbagliate = [];
 
 const showQuestion = () => {
   if (index < questions.length) {
@@ -127,10 +122,11 @@ const showQuestion = () => {
       button.innerText = incorrect_answers;
       buttonDiv.appendChild(button);
     }
-
     nextQuestionAfterClick();
   } else {
-    alert("domande finite"); //da cambiare con il riferimento
+    nextQuestionAfterClick();
+    // document.location.href = "/results.html";
+    alert("domande finite");
   }
 };
 
@@ -140,8 +136,10 @@ const nextQuestionAfterClick = () => {
     buttons[i].onclick = e => {
       if (questions[index].correct_answer.includes(e.target.innerText)) {
         corrects++;
+        giuste.push(corrects);
       } else {
         wrongs++;
+        sbagliate.push(wrongs);
       }
       const buttons = document.querySelectorAll(".content-button button"); //questa variabile ci serve solo per avere i riferimenti dei bottoni da eliminare e cambiare
       for (let i = 0; i < buttons.length; i++) {
@@ -151,10 +149,89 @@ const nextQuestionAfterClick = () => {
       showQuestion();
     };
   }
-  console.log(corrects);
-  console.log(wrongs);
+  console.log("risposte giuste:", giuste.length);
+  console.log("risposte sbagliate:", sbagliate.length);
 };
 
 window.onload = () => {
   showQuestion();
 };
+
+// let index = 0;
+// let corrects = 0;
+// let wrongs = 0;
+
+// // const answerCorrect = num => {
+// //   let arr = [];
+// //   arr.push(num);
+// //   return arr;
+// // };
+
+// // const answerIncorrect = num => {
+// //   let arr = [];
+// //   arr.push(num);
+// //   return arr;
+// // };
+
+// const showQuestion = () => {
+//   if (index < questions.length) {
+//     const p = document.querySelector(".question p");
+//     const testoQuestion = questions[index].question;
+//     p.innerText = testoQuestion;
+
+//     const buttonDiv = document.querySelector(".content-button");
+//     buttonDiv.innerHTML = ""; // Rimuove i vecchi pulsanti
+
+//     const correct_answers = questions[index].correct_answer;
+//     if (Array.isArray(correct_answers)) {
+//       for (let i = 0; i < correct_answers.length; i++) {
+//         const button = document.createElement("button");
+//         button.innerText = correct_answers[i];
+//         buttonDiv.appendChild(button);
+//       }
+//     } else {
+//       const button = document.createElement("button");
+//       button.innerText = correct_answers;
+//       buttonDiv.appendChild(button);
+//     }
+
+//     const incorrect_answers = questions[index].incorrect_answers;
+//     if (Array.isArray(incorrect_answers)) {
+//       for (let i = 0; i < incorrect_answers.length; i++) {
+//         const button = document.createElement("button");
+//         button.innerText = incorrect_answers[i];
+//         buttonDiv.appendChild(button);
+//       }
+//     } else {
+//       const button = document.createElement("button");
+//       button.innerText = incorrect_answers;
+//       buttonDiv.appendChild(button);
+//     }
+
+//     nextQuestionAfterClick();
+//   } else {
+//     document.location.href = "/results.html";
+//   }
+// };
+
+// const nextQuestionAfterClick = () => {
+//   const buttons = document.querySelectorAll(".content-button button");
+//   for (let i = 0; i < buttons.length; i++) {
+//     buttons[i].onclick = e => {
+//       if (questions[index].correct_answer.includes(e.target.innerText)) {
+//         corrects++;
+//       } else {
+//         wrongs++;
+//       }
+//       index++;
+//       showQuestion();
+//     };
+//   }
+// };
+
+// console.log(answerCorrect());
+// console.log(answerIncorrect());
+
+// window.onload = () => {
+//   showQuestion();
+// };

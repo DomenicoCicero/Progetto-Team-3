@@ -125,8 +125,8 @@ const showQuestion = () => {
     nextQuestionAfterClick();
   } else {
     nextQuestionAfterClick();
-    // document.location.href = "/results.html";
-    alert("domande finite");
+    document.location.href = "/results.html";
+    // alert("domande finite");
   }
 };
 
@@ -156,82 +156,3 @@ const nextQuestionAfterClick = () => {
 window.onload = () => {
   showQuestion();
 };
-
-// let index = 0;
-// let corrects = 0;
-// let wrongs = 0;
-
-// // const answerCorrect = num => {
-// //   let arr = [];
-// //   arr.push(num);
-// //   return arr;
-// // };
-
-// // const answerIncorrect = num => {
-// //   let arr = [];
-// //   arr.push(num);
-// //   return arr;
-// // };
-
-// const showQuestion = () => {
-//   if (index < questions.length) {
-//     const p = document.querySelector(".question p");
-//     const testoQuestion = questions[index].question;
-//     p.innerText = testoQuestion;
-
-//     const buttonDiv = document.querySelector(".content-button");
-//     buttonDiv.innerHTML = ""; // Rimuove i vecchi pulsanti
-
-//     const correct_answers = questions[index].correct_answer;
-//     if (Array.isArray(correct_answers)) {
-//       for (let i = 0; i < correct_answers.length; i++) {
-//         const button = document.createElement("button");
-//         button.innerText = correct_answers[i];
-//         buttonDiv.appendChild(button);
-//       }
-//     } else {
-//       const button = document.createElement("button");
-//       button.innerText = correct_answers;
-//       buttonDiv.appendChild(button);
-//     }
-
-//     const incorrect_answers = questions[index].incorrect_answers;
-//     if (Array.isArray(incorrect_answers)) {
-//       for (let i = 0; i < incorrect_answers.length; i++) {
-//         const button = document.createElement("button");
-//         button.innerText = incorrect_answers[i];
-//         buttonDiv.appendChild(button);
-//       }
-//     } else {
-//       const button = document.createElement("button");
-//       button.innerText = incorrect_answers;
-//       buttonDiv.appendChild(button);
-//     }
-
-//     nextQuestionAfterClick();
-//   } else {
-//     document.location.href = "/results.html";
-//   }
-// };
-
-// const nextQuestionAfterClick = () => {
-//   const buttons = document.querySelectorAll(".content-button button");
-//   for (let i = 0; i < buttons.length; i++) {
-//     buttons[i].onclick = e => {
-//       if (questions[index].correct_answer.includes(e.target.innerText)) {
-//         corrects++;
-//       } else {
-//         wrongs++;
-//       }
-//       index++;
-//       showQuestion();
-//     };
-//   }
-// };
-
-// console.log(answerCorrect());
-// console.log(answerIncorrect());
-
-// window.onload = () => {
-//   showQuestion();
-// };

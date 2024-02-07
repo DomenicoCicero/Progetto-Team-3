@@ -11,3 +11,8 @@ stars.forEach((star, i) => {
     });
   });
 });
+
+const btn = document.getElementById("button");
+btn.onclick = () => {
+  document.location.href = "https://epicode.com/it/";
+};

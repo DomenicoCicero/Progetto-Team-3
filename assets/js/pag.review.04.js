@@ -1,5 +1,4 @@
 const stars = document.querySelectorAll(".stars i");
-
 stars.forEach((star, i) => {
   star.addEventListener("click", () => {
     stars.forEach((star, j) => {
@@ -11,3 +10,8 @@ stars.forEach((star, i) => {
     });
   });
 });
+
+const btn = document.getElementById("button");
+btn.onclick = () => {
+  document.location.href = "https://epicode.com/it/";
+};

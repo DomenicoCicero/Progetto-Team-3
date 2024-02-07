@@ -90,6 +90,9 @@ let giuste = [];
 let sbagliate = [];
 
 const showQuestion = () => {
+  const benchmark = document.querySelector(".benchmark-page");
+  const results = document.querySelector(".results");
+  results.style.display = "none";
   if (index < questions.length) {
     const p = document.querySelector(".question p");
     const testoQuestion = questions[index].question;
@@ -125,10 +128,16 @@ const showQuestion = () => {
     nextQuestionAfterClick();
   } else {
     nextQuestionAfterClick();
-    document.location.href = "/results.html";
+    benchmark.style.display = "none";
+    results.style.display = "";
+
+    // document.location.href = "/results.html";
     // alert("domande finite");
   }
 };
+
+console.log("risposte giuste:", giuste.length);
+console.log("risposte sbagliate:", sbagliate.length);
 
 const nextQuestionAfterClick = () => {
   const buttons = document.querySelectorAll("button");
@@ -149,8 +158,51 @@ const nextQuestionAfterClick = () => {
       showQuestion();
     };
   }
+
   console.log("risposte giuste:", giuste.length);
   console.log("risposte sbagliate:", sbagliate.length);
+
+  const totaleQuestion = questions.length;
+  const correct = giuste.length;
+  const wrong = sbagliate.length;
+  const correctH4 = document.querySelector("#section-sx h4");
+  const correctP = document.querySelector("#section-sx p");
+
+  const percentCorrect = (100 / totaleQuestion) * correct;
+  correctH4.innerText = percentCorrect + "%";
+  // correctP.innerText = giuste + "/" + questions + " correct";
+  correctP.innerText = `${correct}/${totaleQuestion} questions`;
+
+  const wrongH4 = document.querySelector("#section-dx h4");
+  const wrongP = document.querySelector("#section-dx p");
+  wrongP.innerText = `${wrong}/${totaleQuestion} questions`;
+
+  const percentWrong = (100 / totaleQuestion) * wrong;
+  wrongH4.innerText = percentWrong + "%";
+
+  // ---------------------------------
+
+  const firstH3 = document.querySelector("#article-center h3");
+  const secondH3 = document.querySelector(".h3-blue");
+  const firstP = document.querySelector(".p1");
+  const secondP = document.querySelector(".p2");
+
+  if (correct >= 6) {
+    firstH3.innerText = "Congratulations!";
+    secondH3.innerText = "You passed the exam.";
+    firstP.innerText = "We'll send you the certificate in a few minutes.";
+    secondP.innerText = "Check your email (including promotions / spam folder)";
+  } else {
+    firstH3.innerText = "Failed!";
+    secondH3.innerText = "You have not passed the exam.";
+    firstP.innerText = "Ritenta il tuo esame";
+  }
+  // --------------------------------
+
+  const btn = document.querySelector(".results button");
+  btn.onclick = () => {
+    document.location.href = "/pag.review.04.html";
+  };
 };
 
 window.onload = () => {

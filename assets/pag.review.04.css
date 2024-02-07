@@ -1,0 +1,79 @@
+body {
+  background-image: url(../assets/bg.jpg);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  text-align: center;
+}
+
+header {
+  text-align: left;
+}
+header img {
+  width: 15%;
+  padding: 45px 0px 30px 80px;
+}
+
+.title-pag h1 {
+  font-family: "Outfit", sans-serif;
+  font-size: 60px;
+  color: white;
+  margin-bottom: 16px;
+}
+
+.title-pag p {
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  color: white;
+  margin-inline: 34%;
+}
+
+.stars {
+  padding-top: 13px;
+  padding-bottom: 50px;
+}
+
+.stars i {
+  font-size: 50px;
+  cursor: pointer;
+}
+
+.stars i.active {
+  color: #00ffff;
+}
+
+footer p {
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  color: white;
+}
+
+#comment {
+  background-color: transparent;
+
+  border-color: blueviolet;
+}
+
+.comment-section {
+  border-bottom: 1px solid #d20094;
+  width: 80%;
+  margin: auto;
+}
+
+.comment-section input {
+  background-color: transparent;
+  border: none;
+  color: white;
+  text-align: start;
+}
+
+.info-button {
+  margin-top: 30px;
+}
+
+.info-button button {
+  background-color: transparent;
+  border: 1px solid white;
+  cursor: pointer;
+  color: white;
+  padding: 16px 32px;
+}

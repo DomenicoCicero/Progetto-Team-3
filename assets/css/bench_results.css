@@ -18,6 +18,11 @@ header img {
   padding: 45px 0px 30px 80px;
 }
 
+.benchmark-page .timer {
+  color: white;
+  font-size: 60px;
+}
+
 .benchmark-page main p {
   color: white;
   font-size: 60px;

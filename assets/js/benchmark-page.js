@@ -89,6 +89,44 @@ let wrongs = 0;
 let giuste = [];
 let sbagliate = [];
 
+const startQuestionTimer = () => {
+  const timerDiv = document.querySelector(".timer");
+  let timeLimit = 10000; // 10 secondi in millisecondi
+  let remainingTime = timeLimit / 1000; // Converti in secondi
+  timerDiv.textContent = remainingTime;
+
+  const timerInterval = setInterval(() => {
+    remainingTime--;
+    timerDiv.textContent = remainingTime;
+
+    const buttons = document.querySelectorAll("button");
+    for (let i = 0; i < buttons.length; i++) {
+      buttons[i].addEventListener("click", e => {
+        clearInterval(timerInterval);
+      });
+    }
+
+    if (remainingTime <= 0) {
+      clearInterval(timerInterval); // Interrompe il timer quando il tempo scade
+      handleTimeout(); // Gestisci il timeout
+    }
+  }, 1000); // Aggiorna il timer ogni secondo
+};
+
+const handleTimeout = () => {
+  // Aggiungi qui il codice da eseguire quando il tempo per la domanda scade
+  // Per esempio, considera la risposta come sbagliata
+  // wrongs++;
+  sbagliate.push(wrongs);
+  const buttons = document.querySelectorAll(".content-button button"); //questa variabile ci serve solo per avere i riferimenti dei bottoni da eliminare e cambiare
+  for (let i = 0; i < buttons.length; i++) {
+    buttons[i].remove();
+  }
+  index++; // Passa alla prossima domanda
+  console.log(index);
+  showQuestion(); // Mostra la prossima domanda
+};
+
 const showQuestion = () => {
   const benchmark = document.querySelector(".benchmark-page");
   const results = document.querySelector(".results");
@@ -133,6 +171,7 @@ const showQuestion = () => {
     pQuestion.appendChild(span);
 
     nextQuestionAfterClick();
+    startQuestionTimer();
   } else {
     nextQuestionAfterClick();
     benchmark.style.display = "none";
@@ -146,10 +185,12 @@ const showQuestion = () => {
 console.log("risposte giuste:", giuste.length);
 console.log("risposte sbagliate:", sbagliate.length);
 
+let x = 0;
+
 const nextQuestionAfterClick = () => {
   const buttons = document.querySelectorAll("button");
   for (let i = 0; i < buttons.length; i++) {
-    buttons[i].onclick = e => {
+    buttons[i].addEventListener("click", e => {
       if (questions[index].correct_answer.includes(e.target.innerText)) {
         corrects++;
         giuste.push(corrects);
@@ -163,7 +204,7 @@ const nextQuestionAfterClick = () => {
       }
       index++;
       showQuestion();
-    };
+    });
   }
 
   console.log("risposte giuste:", giuste.length);
@@ -214,4 +255,5 @@ const nextQuestionAfterClick = () => {
 
 window.onload = () => {
   showQuestion();
+  startQuestionTimer();
 };

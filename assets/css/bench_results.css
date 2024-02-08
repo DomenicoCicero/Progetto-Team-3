@@ -68,7 +68,8 @@ header img {
   font-weight: bold;
   letter-spacing: 3px;
 }
-.benchmark-page footer p span {
+
+.benchmark-page .p-question span {
   color: #900080;
 }
 

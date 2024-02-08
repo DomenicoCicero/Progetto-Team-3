@@ -125,6 +125,13 @@ const showQuestion = () => {
       button.innerText = incorrect_answers;
       buttonDiv.appendChild(button);
     }
+
+    const pQuestion = document.querySelector(".benchmark-page .p-question");
+    const span = document.querySelector(".benchmark-page .p-question span");
+    span.innerText = `/ ${questions.length}`;
+    pQuestion.innerText = `QUESTION ${index + 1} `;
+    pQuestion.appendChild(span);
+
     nextQuestionAfterClick();
   } else {
     nextQuestionAfterClick();

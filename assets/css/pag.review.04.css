@@ -110,3 +110,21 @@ textarea {
   background-color: aqua;
   box-shadow: -0px 1px 20px 2px aqua;
 }
+
+.feedbackpage h2 {
+  font-family: "Outfit", sans-serif;
+  font-size: 60px;
+  color: white;
+}
+
+.feedbackpage h3 {
+  font-family: "Outfit", sans-serif;
+  font-size: 37px;
+  color: white;
+}
+
+.feedbackpage p {
+  font-family: "Outfit", sans-serif;
+  font-size: 35px;
+  color: white;
+}

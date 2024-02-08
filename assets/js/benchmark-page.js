@@ -90,27 +90,30 @@ let giuste = [];
 let sbagliate = [];
 
 const startQuestionTimer = () => {
-  const timerDiv = document.querySelector(".timer");
-  let timeLimit = 10000; // 10 secondi in millisecondi
-  let remainingTime = timeLimit / 1000; // Converti in secondi
-  timerDiv.textContent = remainingTime;
-
-  const timerInterval = setInterval(() => {
-    remainingTime--;
+  if (index < questions.length) {
+    console.log(index, questions.length);
+    const timerDiv = document.querySelector(".timer");
+    let timeLimit = 10000; // 10 secondi in millisecondi
+    let remainingTime = timeLimit / 1000; // Converti in secondi
     timerDiv.textContent = remainingTime;
 
-    const buttons = document.querySelectorAll("button");
-    for (let i = 0; i < buttons.length; i++) {
-      buttons[i].addEventListener("click", e => {
-        clearInterval(timerInterval);
-      });
-    }
+    const timerInterval = setInterval(() => {
+      remainingTime--;
+      timerDiv.textContent = remainingTime;
 
-    if (remainingTime <= 0) {
-      clearInterval(timerInterval); // Interrompe il timer quando il tempo scade
-      handleTimeout(); // Gestisci il timeout
-    }
-  }, 1000); // Aggiorna il timer ogni secondo
+      const buttons = document.querySelectorAll("button");
+      for (let i = 0; i < buttons.length; i++) {
+        buttons[i].addEventListener("click", e => {
+          clearInterval(timerInterval);
+        });
+      }
+
+      if (remainingTime <= 0) {
+        clearInterval(timerInterval); // Interrompe il timer quando il tempo scade
+        handleTimeout(); // Gestisci il timeout
+      }
+    }, 1000); // Aggiorna il timer ogni secondo
+  }
 };
 
 const handleTimeout = () => {
@@ -122,6 +125,7 @@ const handleTimeout = () => {
   for (let i = 0; i < buttons.length; i++) {
     buttons[i].remove();
   }
+
   index++; // Passa alla prossima domanda
   console.log(index);
   showQuestion(); // Mostra la prossima domanda
@@ -174,6 +178,7 @@ const showQuestion = () => {
     startQuestionTimer();
   } else {
     nextQuestionAfterClick();
+    // startQuestionTimer();
     benchmark.style.display = "none";
     results.style.display = "";
 
@@ -184,8 +189,6 @@ const showQuestion = () => {
 
 console.log("risposte giuste:", giuste.length);
 console.log("risposte sbagliate:", sbagliate.length);
-
-let x = 0;
 
 const nextQuestionAfterClick = () => {
   const buttons = document.querySelectorAll("button");
@@ -255,5 +258,4 @@ const nextQuestionAfterClick = () => {
 
 window.onload = () => {
   showQuestion();
-  startQuestionTimer();
 };

@@ -17,6 +17,11 @@ header img {
   padding: 45px 0px 30px 80px;
 }
 
+.benchmark-page .timer {
+  color: white;
+  font-size: 60px;
+}
+
 .benchmark-page main p {
   color: white;
   font-size: 60px;
@@ -67,7 +72,8 @@ header img {
   font-weight: bold;
   letter-spacing: 3px;
 }
-.benchmark-page footer p span {
+
+.benchmark-page .p-question span {
   color: #900080;
 }
 

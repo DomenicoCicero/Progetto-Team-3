@@ -1,10 +1,12 @@
-let valueStar = 0;
 const stars = document.querySelectorAll(".stars i");
 const btn = document.getElementById("button");
 const input = document.querySelector("input");
 const feedbackpage = document.querySelector(".feedbackpage");
+const h3Feedback = document.querySelector("h3");
+const pFeedback = document.querySelector(".feedbackpage p");
+
 feedbackpage.style.display = "none";
-// const feedbackContainer = document.getElementById("feedback-container");
+
 stars.forEach((star, i) => {
   star.addEventListener("mouseover", () => {
     stars.forEach((star, j) => {
@@ -14,12 +16,13 @@ stars.forEach((star, i) => {
         star.classList.remove("active");
       }
     });
-    const h3Feedback = document.querySelector("h3");
-    h3Feedback.innerText = i + 1 + " of 10";
-    star.addEventListener("mouseout", () => {
-      stars.forEach((star) => {
-        star.classList.remove("active");
-      });
+    const ratingIcon = generateRatingIcon(i + 1);
+    h3Feedback.innerHTML = ratingIcon;
+  });
+
+  star.addEventListener("mouseout", () => {
+    stars.forEach((star) => {
+      star.classList.remove("active");
     });
   });
 
@@ -31,7 +34,6 @@ stars.forEach((star, i) => {
         star.classList.remove("selected1");
       }
     });
-    // const p = document.getElementsByClassName("valuestar")[0];
 
     if (i + 1 > 0) {
       btn.classList.add("illuminate");
@@ -40,9 +42,9 @@ stars.forEach((star, i) => {
     }
   });
 });
+
 btn.addEventListener("click", (e) => {
   if (input.value !== "" && stars[0].classList.contains("selected1")) {
-    const pFeedback = document.querySelector(".feedbackpage p");
     pFeedback.innerText = input.value;
     const firstpage = document.querySelector(".paginaprincipale");
     firstpage.style.display = "none";
@@ -51,3 +53,27 @@ btn.addEventListener("click", (e) => {
     alert("compila tutti i campi per la tua recensione");
   }
 });
+
+function generateRatingIcon(rating) {
+  let ratingIcon = "";
+  for (let j = 0; j < rating; j++) {
+    if (rating === 1) {
+      ratingIcon =
+        '<i class="fa-regular fa-face-dizzy fa-xl" style="color: #eceff3;"></i>';
+    } else if (rating >= 2 && rating <= 4) {
+      ratingIcon =
+        '<i class="fa-regular fa-face-frown-open fa-xl" style="color: #eaecf0;"></i>';
+    } else if (rating >= 5 && rating <= 7) {
+      ratingIcon =
+        '<i class="fa-regular fa-face-meh fa-xl" style="color: #f3f4f7;"></i>';
+    } else if (rating >= 8 && rating <= 9) {
+      ratingIcon =
+        '<i class="fa-regular fa-face-smile-wink fa-xl" style="color: #eaecf1;"></i>';
+    } else {
+      ratingIcon =
+        '<i class="fa-regular fa-face-grin-stars fa-xl" style="color: #e7eaee;"></i>';
+    }
+  }
+
+  return ratingIcon;
+}

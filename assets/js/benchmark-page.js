@@ -93,7 +93,7 @@ const startQuestionTimer = () => {
   if (index < questions.length) {
     console.log(index, questions.length);
     const timerDiv = document.querySelector(".timer");
-    let timeLimit = 60000; // 10 secondi in millisecondi
+    let timeLimit = 10000; // 10 secondi in millisecondi
     let remainingTime = timeLimit / 1000; // Converti in secondi
     timerDiv.textContent = remainingTime;
 

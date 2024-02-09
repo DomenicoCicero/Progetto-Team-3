@@ -111,19 +111,28 @@ textarea {
 }
 
 .feedbackpage h2 {
-  font-family: "Outfit", sans-serif;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   font-size: 60px;
   color: white;
 }
 
 .feedbackpage h3 {
   font-family: "Outfit", sans-serif;
-  font-size: 37px;
+  font-size: 60px;
   color: white;
 }
 
 .feedbackpage p {
-  font-family: "Outfit", sans-serif;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-size: 35px;
   color: white;
+}
+
+.more-info {
+  margin-top: 20px;
+}
+
+.more-info a {
+  color: rgba(243, 238, 238, 0.842);
+  font-size: 12px;
 }

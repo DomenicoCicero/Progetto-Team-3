@@ -12,7 +12,7 @@ const questions = [
     type: "multiple",
     difficulty: "easy",
     question:
-      "In the programming language Java, which of these keywords would you put on a variable to make sure it doesn&#039;t get modified?",
+      "In the programming language Java, which of these keywords would you put on a variable to make sure it doesn't get modified?",
     correct_answer: "Final",
     incorrect_answers: ["Static", "Private", "Public"],
   },
@@ -93,13 +93,17 @@ const startQuestionTimer = () => {
   if (index < questions.length) {
     console.log(index, questions.length);
     const timerDiv = document.querySelector(".timer");
-    let timeLimit = 10000; // 10 secondi in millisecondi
+    let timeLimit = 60000; // 10 secondi in millisecondi
     let remainingTime = timeLimit / 1000; // Converti in secondi
     timerDiv.textContent = remainingTime;
 
     const timerInterval = setInterval(() => {
       remainingTime--;
       timerDiv.textContent = remainingTime;
+
+      console.log(remainingTime);
+
+      updateChart(remainingTime); //
 
       const buttons = document.querySelectorAll("button");
       for (let i = 0; i < buttons.length; i++) {
@@ -255,6 +259,53 @@ const nextQuestionAfterClick = () => {
     document.location.href = "/pag.review.04.html";
   };
 };
+
+let myChart;
+
+function drawPieChart(value, maxValue) {
+  const ctx = document.getElementById("countdown").getContext("2d");
+  myChart = new Chart(ctx, {
+    type: "doughnut",
+    data: {
+      datasets: [
+        {
+          data: [value, maxValue - value],
+          backgroundColor: ["#00FFFF", "#825F8E"],
+        },
+      ],
+    },
+    options: {
+      cutout: "80%",
+      tooltips: {
+        enabled: false,
+      },
+      plugins: {
+        datalabels: {
+          backgroundColor: function (context) {
+            return context.dataset.backgroundColor;
+          },
+          display: function (context) {
+            var dataset = context.dataset;
+            var value = dataset.data[context.dataIndex];
+            return value > 0;
+          },
+          color: "white",
+        },
+      },
+    },
+  });
+}
+
+function updateChart(counter) {
+  myChart.data.datasets[0].data[1] = counter;
+  myChart.update();
+}
+
+const init = () => {
+  drawPieChart(60, 60);
+};
+
+init();
 
 window.onload = () => {
   showQuestion();

@@ -177,3 +177,42 @@ header img {
   font-family: "Outfit", sans-serif;
   font-weight: lighter;
 }
+
+.timer-canvas {
+  padding-inline-start: 43%;
+  vertical-align: middle;
+}
+.c-countdown-wrapper {
+  max-width: 150px;
+  width: 100%;
+  /* margin: 20px auto; */
+  position: relative; /* Cambiato in position: relative */
+  margin-inline-start: 76.5%;
+}
+
+.content-timer {
+  text-align: center;
+  position: absolute;
+  /* left: 84%; */
+  right: 6%;
+  top: 27%;
+  transform: translate(-50%, -50%);
+}
+
+.benchmark-page .content-timer p {
+  margin: 0;
+  font-size: 12px;
+}
+
+canvas {
+  width: 150px;
+  height: 150px;
+}
+
+.timer-canvas .content-timer div {
+  font-size: 40px;
+}
+
+.timer {
+  text-align: end;
+}

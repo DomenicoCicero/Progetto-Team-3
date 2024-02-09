@@ -5,6 +5,6 @@ btn.onclick = function (e) {
   if (check.checked) {
     document.location.href = "/bench_results.html";
   } else {
-    alert("Checkbox non affettuata");
+    alert("Checkbox non selezionata");
   }
 };

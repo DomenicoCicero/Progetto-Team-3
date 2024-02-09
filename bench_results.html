@@ -12,7 +12,17 @@
     </header>
     <div class="benchmark-page">
       <main>
-        <div class="timer"></div>
+        <div class="timer-canvas">
+          <div class="content-timer">
+            <p>seconds</p>
+            <div class="timer"></div>
+            <p>remainings</p>
+          </div>
+          <div class="c-countdown-wrapper">
+            <canvas id="countdown"> </canvas>
+          </div>
+        </div>
+
         <div class="question">
           <p></p>
         </div>
@@ -55,6 +65,7 @@
         <button>RATE US</button>
       </footer>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
     <script src="/assets/js/benchmark-page.js"></script>
   </body>
 </html>
